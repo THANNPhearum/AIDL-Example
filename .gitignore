@@ -1,0 +1,17 @@
+/AIDLServer/.gitignore
+/AIDLServer/.idea/.name
+/AIDLServer/.idea/compiler.xml
+/AIDLServer/.idea/copyright/profiles_settings.xml
+/AIDLServer/.idea/gradle.xml
+/AIDLServer/.idea/misc.xml
+/AIDLServer/.idea/modules.xml
+/AIDLServer/.idea/runConfigurations.xml
+/AIDLServer/.idea/vcs.xml
+/AIDLServer/app/.gitignore
+/AIDLServer/app/proguard-rules.pro
+/AIDLServer/gradle/wrapper/gradle-wrapper.jar
+/AIDLServer/gradle/wrapper/gradle-wrapper.properties
+/AIDLServer/gradlew.bat
+/AIDLServer/server/.gitignore
+/AIDLServer/server/proguard-rules.pro
+/AIDLServer/gradlew
