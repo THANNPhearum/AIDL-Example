@@ -11,9 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.gg.aidlserver.service.MessageService;
 import com.gg.server.IMessageService;
+import com.gg.server.MainObject;
 
 public class MainActivity extends AppCompatActivity {
     private IMessageService mService;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         startService(serviceIntent);
         bindService(serviceIntent, mConnection, BIND_AUTO_CREATE);
         final EditText message = (EditText) findViewById(R.id.message);
-        Button send = (Button) findViewById(R.id.send);
+        final Button send = (Button) findViewById(R.id.send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 if (!newMessage.isEmpty()) {
                     try {
                         mService.setMessage(newMessage);
+                        mService.setObject(new MainObject(newMessage));
+                        Toast.makeText(v.getContext(),
+                            getString(R.string.message_updated), Toast.LENGTH_SHORT).show();
                     } catch (RemoteException e) {
                         e.printStackTrace();
+                        Toast.makeText(v.getContext(),
+                            getString(R.string.message_updated_failed), Toast.LENGTH_SHORT).show();
                     }
                 }
             }
